@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -12,25 +13,12 @@ class AuthController extends Controller
 {
     use ApiResponser;
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $rules = array(
-            'password' => 'required',
-            'email' => 'required|email',
-        );
-
-
-        $error = Validator::make($request->all(), $rules);
-
-        if($error->fails())
-        {
-            return $this->error("Invalid credentials", Response::HTTP_BAD_REQUEST,['errors'=>$error->errors()->all()]);
-        }
 
         if (!Auth::attempt($request->all())) {
             return $this->error("Credentials not match", Response::HTTP_UNAUTHORIZED);
         }
-
 
         return $this->success(
             ['token' => auth()->user()->createToken('API Token')->plainTextToken]
