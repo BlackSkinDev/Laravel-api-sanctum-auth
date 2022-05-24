@@ -9,7 +9,7 @@ class UserService{
     // Bind that key in your App service provider which returns a callback(call back returns your main class)
     // Facade class is ready to call your main class methods statically. You can create allias in your config/app.php for faster access to facade
 
-    public function getUsers(){
+    public  function getUsers(){
         return User::all()->modelKeys();
     }
 

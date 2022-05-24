@@ -25,7 +25,7 @@ class LoginRequest extends FormRequest
         throw new HttpResponseException(response([
             'status' => 'error',
             'message' =>null,
-            'data'=>$validator->errors()
+            'error'=>$validator->errors()
         ],Response::HTTP_BAD_REQUEST));
 
     }

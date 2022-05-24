@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Services\UserService;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    dd(UserService::getUsers());
+   // dd(UserService::getUsers());
+   $x = new UserService();
+   dd($x->getUsers());
 
 });

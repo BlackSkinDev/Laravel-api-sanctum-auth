@@ -7,6 +7,7 @@ use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -35,6 +36,9 @@ class AuthController extends Controller
             'message' => 'Logged out'
         ];
     }
+
+
+
 
 
 }
